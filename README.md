@@ -1,1 +1,1 @@
-lab management web app
+Laboratory management web app
