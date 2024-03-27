@@ -11,7 +11,7 @@ Logo.propTypes = {
 };
 
 export default function Logo({ disabledLink = false, sx }) {
-  const logo = <Box component="img" src="/static/viettel.png" sx={{ width: "100%", maxWidth: "200px", px: 4, ...sx }} />
+  const logo = <Box component="img" src="/static/computer-science.png" sx={{ width: "100%", maxWidth: "200px", px: 4, ...sx }} />
 
   if (disabledLink) {
     return <>{logo}</>;

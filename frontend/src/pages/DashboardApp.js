@@ -19,7 +19,7 @@ export default function DashboardApp() {
     <Page title="Thống kê">
       <Container maxWidth="xl">
           <Typography variant="h4" sx={{mb: 5}}>
-              App thống kê Thực tập sinh lĩnh vực Cloud
+              App thống kê Thực tập sinh 
           </Typography>
 
         <Grid container spacing={3}>

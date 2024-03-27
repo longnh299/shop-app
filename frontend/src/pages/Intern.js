@@ -125,7 +125,7 @@ export default function Intern() {
         <Container>
           <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
             <Typography variant="h4" gutterBottom>
-              Thực tập sinh lĩnh vực Cloud
+              Thực tập sinh
             </Typography>
           </Stack>
 
