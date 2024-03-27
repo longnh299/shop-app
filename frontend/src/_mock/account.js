@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
 
 const account = {
-    displayName: 'VDT 2022',
+    displayName: 'Longnh',
     photoURL: '/static/mock-images/avatars/avatar_admin.jpg',
     role: 'admin'
 };
