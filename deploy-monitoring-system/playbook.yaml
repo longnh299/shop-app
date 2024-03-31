@@ -1,0 +1,100 @@
+---
+- hosts: all
+  tasks:
+  - name: Install aptitude
+    become: yes
+    apt:
+      name: aptitude
+      state: latest
+      update_cache: yes
+  
+  - name: Install required system packages
+    become: yes
+    apt:
+      name: 
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+        - python3-pip
+        - virtualenv
+        - python3-setuptools
+      state: latest
+      update_cache: yes
+
+- hosts: nodes
+  become: yes
+  tasks: 
+  - name: Add docker GPG apt key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+  
+  - name: Add docker repo
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu focal stable
+      state: present
+  
+  - name: Update apt and install docker-ce
+    apt:
+      name: docker-ce
+      state: latest
+      update_cache: yes
+
+  - name: Install Docker Module for Python
+    pip:
+      name: docker
+  
+  - name: Pull Node-exporter image from Dockerhub
+    docker_image:
+      name: prom/node-exporter:latest
+      source: pull
+
+  - name: Run Node-exporter container
+    docker_container:
+      name: Node-exporter
+      image: prom/node-exporter:latest
+      restart_policy: unless-stopped
+      ports:
+      - "9100:9100" 
+      
+      
+      
+    
+
+- hosts: monitor
+  become: yes
+  tasks:
+  - name: Install Prometheus
+    docker_image:
+      name: prom/prometheus:latest
+      source: pull
+
+  - name: Copy prometheus.yml file to /tmp
+    copy:
+      src: prometheus.yml
+      dest: /tmp
+
+  - name: Run Prometheus Docker image
+    docker_container:
+      name: prometheus
+      image: prom/prometheus:latest
+      restart_policy: unless-stopped
+      volumes: /tmp/prometheus.yml:/etc/prometheus/prometheus.yml
+      ports:
+      - "9090:9090"
+
+  - name: Pull grafana image
+    docker_image:
+      name: grafana/grafana-enterprise:latest
+      source: pull
+
+  - name: Run Grafana container
+    docker_container:
+      name: grafana
+      image: grafana/grafana-enterprise:latest
+      restart_policy: unless-stopped
+      ports:
+      - "3000:3000"
+      
+    
