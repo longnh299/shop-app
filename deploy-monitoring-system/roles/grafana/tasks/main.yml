@@ -1,0 +1,15 @@
+---
+# tasks file for roles/grafana
+
+- name: Pull grafana image
+  docker_image:
+    name: grafana/grafana-enterprise:latest
+    source: pull
+
+- name: Run Grafana container
+  docker_container:
+    name: grafana
+    image: grafana/grafana-enterprise:latest
+    restart_policy: unless-stopped
+    ports:
+    - "3000:3000"

@@ -1,0 +1,21 @@
+---
+# tasks file for roles/common
+
+- name: Install aptitude
+  apt:
+    name: aptitude
+    state: latest
+    update_cache: yes
+  
+- name: Install required system packages
+  apt:
+    name: 
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - python3-pip
+      - virtualenv
+      - python3-setuptools
+    state: latest
+    update_cache: yes

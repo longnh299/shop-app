@@ -1,0 +1,15 @@
+---
+# tasks file for roles/node-exporter
+
+- name: Pull Node-exporter image from Dockerhub
+  docker_image:
+    name: prom/node-exporter:latest
+    source: pull
+
+- name: Run Node-exporter container
+  docker_container:
+    name: Node-exporter
+    image: prom/node-exporter:latest
+    restart_policy: unless-stopped
+    ports:
+    - "9100:9100" 
