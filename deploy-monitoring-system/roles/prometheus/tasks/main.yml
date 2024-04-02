@@ -1,5 +1,6 @@
 ---
 # tasks file for roles/prometheus
+# using jinja2 template
 - name: Install Prometheus
   docker_image:
     name: prom/prometheus:{{ version }}
