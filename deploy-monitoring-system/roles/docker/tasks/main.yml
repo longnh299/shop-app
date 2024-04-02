@@ -3,12 +3,12 @@
 
 - name: Add docker GPG apt key
   apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
+    url: https://download.docker.com/{{ os.name }}/{{ os.distro }}/gpg
     state: present
   
 - name: Add docker repo
   apt_repository:
-    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    repo: deb https://download.docker.com/{{ os.name }}/{{ os.distro }} {{ os.version }} stable
     state: present
   
 - name: Update apt and install docker-ce
