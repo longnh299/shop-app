@@ -1,5 +1,0 @@
----
-# defaults file for roles/prometheus
-
-version: latest
-scrape_interval: 15s
