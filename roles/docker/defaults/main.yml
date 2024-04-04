@@ -1,0 +1,9 @@
+---
+# defaults file for roles/docker
+
+os:
+  name: linux
+  distro: ubuntu
+  version: focal
+
+  

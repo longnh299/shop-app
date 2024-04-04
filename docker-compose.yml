@@ -1,0 +1,36 @@
+version: '3.0' # version 3
+
+services:
+  react:
+    image: longnh09/frontend:latest
+    container_name: presentation_tier
+    restart: unless-stopped
+    ports:
+      - "9333:9333"
+    links:
+      - flask
+
+  flask:
+    image: longnh09/backend:latest
+    container_name: logic_tier
+    restart: unless-stopped
+    environment:
+      - FLASK_APP=backend/app
+    ports:
+      - "5000:5000"
+    links:
+      - mongodb
+
+  mongodb:
+    image: mongo:5.0
+    container_name: data_tier
+    restart: unless-stopped
+    hostname: mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=student
+      - MONGO_INITDB_ROOT_USERNAME=longnh
+      - MONGO_INITDB_ROOT_PASSWORD=practice
+
+    ports:
+      - "27017:27017"
+      

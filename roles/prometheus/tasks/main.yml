@@ -1,0 +1,21 @@
+---
+# tasks file for roles/prometheus
+# using jinja2 template
+- name: Install Prometheus
+  docker_image:
+    name: prom/prometheus:{{ version }}
+    source: pull
+
+- name: Copy prometheus.yml file to /tmp
+  template:
+    src: prometheus.yml.j2
+    dest: /tmp/prometheus.yml
+
+- name: Run Prometheus Docker image
+  docker_container:
+    name: prometheus
+    image: prom/prometheus:{{ version }}
+    restart_policy: unless-stopped
+    volumes: /tmp/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+    - "9090:9090"

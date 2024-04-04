@@ -1,0 +1,28 @@
+---
+# tasks file for roles/build-push-image
+
+
+- name: Log into DockerHub
+  docker_login:
+    username: "{{ dockerhub_username }}"
+    password: "{{ dockerhub_password }}"
+
+
+- name: Build an backend image and push it to Dockerhub
+  docker_image:
+    build:
+      path: ./backend
+    name: "{{ backend_image_name }}"
+    tag: "{{ backend_image_tag }}"
+    push: true
+    source: build
+
+- name: Build an frontend image and push it to Dockerhub
+  docker_image:
+    build:
+      path: ./frontend
+    name: "{{ frontend_image_name }}"
+    tag: "{{ frontend_image_tag }}"
+    push: true
+    source: build
+

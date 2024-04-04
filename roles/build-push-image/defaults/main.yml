@@ -1,0 +1,12 @@
+---
+# defaults file for roles/build-push-image
+
+dockerhub_username: longnh09
+dockerhub_password: Boybanhbeo09
+
+backend_image_name: longnh09/backend
+backend_image_tag: latest
+
+frontend_image_name: longnh09/frontend
+frontend_image_tag: latest
+

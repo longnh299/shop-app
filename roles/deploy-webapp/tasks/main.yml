@@ -1,0 +1,41 @@
+---
+# tasks file for roles/deploy-webapp
+#u=rw,g=r,o=r
+
+- name: Recursively remove directory
+  file:
+    path: /tmp/longnh
+    state: absent
+
+- name: Create longnh folder in worker1
+  file:
+    path: /tmp/longnh
+    state: directory
+    mode: u=rwx,g=rwx,o=rwx
+
+- name: Copy docker-compose file to worker1
+  copy:
+    src: ./docker-compose.yml
+    dest: /tmp/longnh/
+
+- name: Copy backend folder to define in docker-compose.yml
+  copy:
+    src: ./backend
+    dest: /tmp/longnh/
+
+- name: Pull backend image from Dockerhub
+  docker_image:
+    name: "{{ backend_image_name }}:{{ backend_image_tag }}"
+    source: pull
+
+- name: Pull frontend image from Dockerhub
+  docker_image:
+    name: "{{ frontend_image_name }}:{{ frontend_image_tag }}"
+    source: pull
+
+- name: Deploy webapp using docker compose
+  community.docker.docker_compose_v2:
+    project_src: /tmp/longnh/
+    files:
+    - docker-compose.yml
+
