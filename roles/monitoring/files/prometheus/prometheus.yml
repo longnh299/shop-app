@@ -1,0 +1,32 @@
+global:
+  scrape_interval:     30s # How frequently to scrape targets from all job
+  evaluation_interval: 30s # How frequently to evaluate rules
+  external_labels:
+      monitor: 'monitoring-stack'
+
+rule_files: # Our rules files (in the same directory with prometheus)
+  - 'prometheus.rules.yml'
+  - 'node.rules.yml'
+
+alerting: # We will configure and use alertmanagers for alerting here.
+  alertmanagers:
+  - scheme: http
+    static_configs:
+    - targets:
+      - "alertmanager:9093"
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 15s     # We will not use the global scrape_interval, but instead, set it to 15s
+
+  - job_name: 'alertmanager'
+    static_configs:
+      - targets:
+        - "alertmanager:9093"
+  
+  - job_name: 'node'
+    static_configs:
+      - targets:
+        - "node-exporter:9100" # node-exporter on local
+        - "18.138.227.65:9100" # worker1
+        - "47.128.74.122:9100" # worker2

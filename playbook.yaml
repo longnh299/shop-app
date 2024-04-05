@@ -17,9 +17,10 @@
   hosts: monitor
   become: yes
   roles:
-  - prometheus
-  - grafana
+  #- prometheus
+  #- grafana
   - build-push-image
+  - monitoring
 
 - name: Deploy webapp on worker1
   hosts: ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com
