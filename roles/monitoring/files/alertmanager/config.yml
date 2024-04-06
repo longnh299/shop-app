@@ -4,10 +4,24 @@ global:
 route:
   group_by: ['alertname']
   group_wait: 10s       # wait up to 10s for more alerts to group them
-  receiver: 'telepush'  # set the receiver below
+  receiver: 'telepush'  # set the  default receiver
+
+  routes:
+    - match: 
+      receiver: 'telepush'
+      continue: true
+
+    - match:
+      receiver: 'slack'
 
 receivers:
+
 - name: 'telepush'
   webhook_configs:
-  - url: 'https://telepush.dev/api/inlets/alertmanager/619e91'    # our TelepushBot token
-    http_config:
+  - url: 'https://telepush.dev/api/inlets/alertmanager/619e91'    # TelepushBot token
+
+- name: 'slack'
+  slack_configs:
+  - channel: '#system-alert'
+    api_url: 'https://hooks.slack.com/services/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' # slack channel webhooks url
+    send_resolved: true
