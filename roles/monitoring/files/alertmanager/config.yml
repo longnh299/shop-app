@@ -24,4 +24,5 @@ receivers:
   slack_configs:
   - channel: '#system-alert'
     api_url: 'https://hooks.slack.com/services/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' # slack channel webhooks url
+    text: "{{ .CommonAnnotations.description }}"
     send_resolved: true
