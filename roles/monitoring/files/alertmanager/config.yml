@@ -41,3 +41,10 @@ receivers:
     auth_password: 'ojvgrobmifgtrmtz' # generate application password in gmail security setting
     send_resolved: true
     
+  - to: 'phamthanhxuan2000k@gmail.com'
+    from: 'longkakapro2000@gmail.com'
+    smarthost: smtp.gmail.com:587
+    auth_username: 'longkakapro2000@gmail.com'
+    auth_identity: 'longkakapro2000@gmail.com'
+    auth_password: 'ojvgrobmifgtrmtz' # generate application password in gmail security setting
+    send_resolved: true
