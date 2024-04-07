@@ -13,6 +13,10 @@ route:
 
     - match:
       receiver: 'slack'
+      continue: true
+
+    - match:
+      receiver: 'gmail'
 
 receivers:
 
@@ -26,3 +30,14 @@ receivers:
     api_url: 'https://hooks.slack.com/services/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' # slack channel webhooks url
     text: "{{ .CommonAnnotations.description }}"
     send_resolved: true
+
+- name: 'gmail'
+  email_configs:
+  - to: 'hoangglongg299@gmail.com'
+    from: 'longkakapro2000@gmail.com'
+    smarthost: smtp.gmail.com:587
+    auth_username: 'longkakapro2000@gmail.com'
+    auth_identity: 'longkakapro2000@gmail.com'
+    auth_password: 'ojvgrobmifgtrmtz' # generate application password in gmail security setting
+    send_resolved: true
+    
