@@ -1,12 +1,12 @@
-# Deploy stack Prometheus + Alertmanager + Grafana to monitor server using Ansible
+# Deploy Prometheus + Alertmanager + Grafana stack to monitor server using Ansible
 
 ## I. Requirements
 
 1. Deploy Prometheus-Grafana-Alertmanager stack and Web application
    * Using docker, docker-compose, ansible to deploy
-2. Define alert rules to monitoring host
+2. Define alert rules to monitoring  target hosts
 3. Configure Alertmanager to push alert to Telegram, Slack, Mail...
-4. Create the dashboards Grafana to monitoring host
+4. Create Grafana dashboards to monitoring target hosts
 
 ## II. System Architecture
 
@@ -16,10 +16,10 @@
    * Using Ansible to deploy web app, monitoring system, package... on 3 above machines.
      
 ### 2. Monitor machine
-I will deploy create a monitor machine on Vmware Workstation 17 Player, then I deploy Prometheus-Grafana-Alertmanager stack using docker, docker-compose and Ansible on this machine
+I will create a monitor machine on Vmware Workstation 17 Player (Ubuntu 20.04), then I deploy Prometheus-Grafana-Alertmanager stack using docker, docker-compose and Ansible on this machine
 
 ### 3. Worker machines
-I will create 2 EC2 instances on AWS for worker nodes
+I will create 2 EC2 instances (Ubuntu 20.04) on AWS for worker nodes
 - Worker1 for deploy web application and Node exporter
   - Web app: http://ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com:9333
   - Node exporter: http://ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com:9100
