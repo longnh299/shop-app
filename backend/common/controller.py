@@ -50,12 +50,12 @@ def init():
 
     University.objects.insert([
         University(name="ĐH Bách khoa Hà Nội"),
-        University(name="ĐH Công nghệ - ĐH Quốc gia Hà Nội"),
         University(name="ĐH GTVT"),
+        University(name="ĐH KHTN-VNUHCM"),
         University(name="ĐH Kinh tế Quốc dân"),
         University(name="Học viện Kỹ thuật Mật mã"),
+        University(name="ĐH Công nghệ - ĐH Quốc gia Hà Nội"),
         University(name="HV BCVT"),
-        University(name="Đại học Tổng hợp ITMO"),
     ])
 
     Intern.objects.insert([
@@ -63,14 +63,37 @@ def init():
                university=ref_from_universities("ĐH Bách khoa Hà Nội"),
                major="Kỹ thuật máy tính", gender="nam"),
 
-        Intern(order=2, name="Hoang Long Nguyen", year_of_birth=2000,
+        Intern(order=2, name="Hoang Long Nguyen", year_of_birth=2002,
                university=ref_from_universities("ĐH Bách khoa Hà Nội"),
                major="Khoa học máy tính", gender="nam"),
 
         Intern(order=3, name="Longnh", year_of_birth=2000,
-               university=ref_from_universities("ĐH Bách khoa Hà Nội"),
-               major="Tự động hóa", gender="name"),
+               university=ref_from_universities("ĐH Công nghệ - ĐH Quốc gia Hà Nội"),
+               major="Tự động hóa", gender="nam"),
 
+        Intern(order=4, name="Đặng Thúy Anh", year_of_birth=2001,
+               university=ref_from_universities("ĐH Kinh tế Quốc dân"),
+               major="Marketing", gender="nữ"),
+
+        Intern(order=5, name="Lê Mỹ Hoa", year_of_birth=2001,
+               university=ref_from_universities("ĐH KHTN-VNUHCM"),
+               major="Công nghệ thông tin", gender="nữ"), 
+
+        Intern(order=6, name="Ivan Ipatov", year_of_birth=2000,
+               university=ref_from_universities("ĐH Bách khoa Hà Nội"),
+               major="Information Security", gender="nam"),
+
+        Intern(order=7, name="Nguyễn Nguyễn", year_of_birth=2000,
+               university=ref_from_universities("HV BCVT"),
+               major="Điện tử viễn thông", gender="nam"),
+
+        Intern(order=8, name="Lee Chong Wei", year_of_birth=2002,
+               university=ref_from_universities("Học viện Kỹ thuật Mật mã"),
+               major="Điện tử viễn thông", gender="nam"),
+
+        Intern(order=9, name="Hoàng Lan", year_of_birth=2000,
+               university=ref_from_universities("ĐH GTVT"),
+               major="Logistic", gender="nữ"),
 
     ])
 
