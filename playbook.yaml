@@ -4,12 +4,12 @@
   become: yes
   roles:
   - common
+  - docker
   
 - name: Install package for nodes
   hosts: nodes
   become: yes
   roles:
-  - docker
   - node-exporter
   
 
