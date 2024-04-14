@@ -69,7 +69,7 @@ I use Ansible to deploy web app and node exporter on 2 ec2 worker. Because I wil
   </div>
 
 <div align="center">
-  <i>Web app is hosted at http://ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com:9333/</i>
+  <i>Web app is hosted at http://ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com:8080/students</i>
 </div>
 
 - Check Prometheus targets
