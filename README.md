@@ -2,7 +2,7 @@
 
 ## I. Requirements
 
-1. Deploy Prometheus-Grafana-Alertmanager stack and Web application
+1. Deploy Prometheus-Grafana-Alertmanager stack and Springboot web application
    * Using docker, docker-compose, ansible to deploy
 2. Define alert rules to monitoring  target hosts
 3. Configure Alertmanager to push alert to Telegram, Slack, Mail...
@@ -21,7 +21,7 @@ I will create a monitor machine on Vmware Workstation 17 Player (Ubuntu 20.04), 
 ### 3. Worker machines
 I will create 2 EC2 instances (Ubuntu 20.04) on AWS for worker nodes
 - Worker1 for deploy web application and Node exporter
-  - Web app: http://ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com:9333
+  - Springboot web app: http://ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com:8080
   - Node exporter: http://ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com:9100
     
 - Worker2 for only Node exporter
