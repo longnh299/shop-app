@@ -17,12 +17,4 @@
     push: true
     source: build
 
-- name: Build an frontend image and push it to Dockerhub
-  docker_image:
-    build:
-      path: ./frontend
-    name: "{{ frontend_image_name }}"
-    tag: "{{ frontend_image_tag }}"
-    push: true
-    source: build
 

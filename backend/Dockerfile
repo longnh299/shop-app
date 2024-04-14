@@ -1,12 +1,4 @@
-FROM python:3.9
-
-LABEL maintainer="longnh"
-
-WORKDIR /usr/src/app/
-
-COPY . .
-
-RUN pip install --upgrade pip && \
-	pip install -r requirements.txt
-	
-CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
+FROM amazoncorretto:17-alpine-jdk
+MAINTAINER longnh
+COPY student-management-0.0.1-SNAPSHOT.jar student-management-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/student-management-0.0.1-SNAPSHOT.jar"]
