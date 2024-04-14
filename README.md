@@ -21,7 +21,7 @@ I will create a monitor machine on Vmware Workstation 17 Player (Ubuntu 20.04), 
 ### 3. Worker machines
 I will create 2 EC2 instances (Ubuntu 20.04) on AWS for worker nodes
 - Worker1 for deploy web application and Node exporter
-  - Springboot web app: http://ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com:8080
+  - Springboot web app: http://ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com:8080/students
   - Node exporter: http://ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com:9100
     
 - Worker2 for only Node exporter
