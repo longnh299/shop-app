@@ -23,7 +23,7 @@
   - monitoring
 
 - name: Deploy webapp on worker1
-  hosts: ec2-18-138-227-65.ap-southeast-1.compute.amazonaws.com
+  hosts: worker1
   become: yes
   roles:
   - deploy-webapp

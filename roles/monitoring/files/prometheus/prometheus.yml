@@ -28,5 +28,5 @@ scrape_configs:
     static_configs:
       - targets:
         - "node-exporter:9100" # node-exporter on local
-        - "18.138.227.65:9100" # worker1
-        - "47.128.74.122:9100" # worker2
+        - "13.215.157.152:9100" # worker1
+        - "13.212.228.95:9100" # worker2
