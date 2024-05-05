@@ -6,9 +6,6 @@ variable "instance_type" {
   
 }
 
-variable "image_id" {
-  
-}
 
 variable "worker_sg" {
   
