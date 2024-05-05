@@ -81,6 +81,7 @@ locals {
 # security group
 resource "aws_security_group" "iac_module_sg" {
   name = "stmw_sg"
+  vpc_id = aws_vpc.iac_module_vpc.id
 
   dynamic "ingress" {
     for_each = toset(local.port_in_22)
