@@ -9,3 +9,7 @@ output "stmw_sg" {
 output "stmw_public_subnets" {
   value = aws_subnet.iac_module_public_subnets.*.id
 }
+
+output "stmw_eni" {
+  value = aws_network_interface.stmw_eni.id
+}

@@ -149,3 +149,12 @@ resource "aws_security_group" "iac_module_sg" {
 
 }
 
+# network interface
+resource "aws_network_interface" "stmw_eni" {
+  subnet_id   = aws_subnet.iac_module_public_subnets.id
+
+  tags = {
+    Name = "stmw_eni"
+  }
+}
+
