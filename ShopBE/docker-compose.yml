@@ -12,7 +12,7 @@ services:
       - springboot-mysql-net
 
   frontendapp:
-    image: shopappfe:1.0
+    image: longnh09/shopappfe:latest
     ports:
       - "4200:4200"
     networks:
@@ -21,7 +21,7 @@ services:
       - webapp
   
   webapp:
-    image: shopappbe:1.0 
+    image: longnh09/shopappbe:latest
     ports:
       - "8080:8080"
     depends_on:
