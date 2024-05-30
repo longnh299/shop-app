@@ -2,7 +2,7 @@
 
 ## I. Requirements
 
-1. Deploy Prometheus-Grafana-Alertmanager stack and Springboot web application
+1. Deploy Prometheus-Grafana-Alertmanager stack and Angular-Springboot web application
    * Using docker, docker-compose, ansible to deploy
 2. Define alert rules to monitoring  target hosts
 3. Configure Alertmanager to push alert to Telegram, Slack, Mail...
@@ -21,7 +21,7 @@ I will create a monitor machine on Vmware Workstation 17 Player (Ubuntu 20.04), 
 ### 3. Worker machines
 I will create 2 EC2 instances (Ubuntu 20.04) on AWS for worker nodes
 - Worker1 for deploy web application and Node exporter
-  - Springboot web app: http://[worker1-AWS-EC2-Public-IPv4-DNS]:8080/students
+  - Web app: http://[worker1-AWS-EC2-Public-IPv4-DNS]:4200/#
   - Node exporter: http://[worker1-AWS-EC2-Public-IPv4-DNS]:9100
     
 - Worker2 for only Node exporter
@@ -68,10 +68,14 @@ I use Ansible to deploy web app and node exporter on 2 ec2 worker. Because I wil
     <img width="1500" src="assets/deploy-on-ec2-using-ansible.png" alt="webapp-ec2">
   </div>
 
+  <div align="center">
+    <img width="1500" src="assets/deploy-on-ec2-using-ansible-2.png" alt="webapp-ec2">
+  </div>
+
 <div align="center">
-  <i>Web app is hosted at http://[worker1-AWS-EC2-Public-IPv4-DNS]:8080/students</i>
+  <i>Web app is hosted at http://[worker1-AWS-EC2-Public-IPv4-DNS]:4200/#</i>
   <br>
-  <i>In this case web app is hosted at http://ec2-13-215-157-152.ap-southeast-1.compute.amazonaws.com:8080/students</i>
+  <i>In this case web app is hosted at http://ec2-13-215-157-152.ap-southeast-1.compute.amazonaws.com:4200/#</i>
 </div>
 
 - Check Prometheus targets
