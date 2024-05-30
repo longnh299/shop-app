@@ -3,7 +3,7 @@
 
 - name: Deploy monitoring stack using docker-compose module
   community.docker.docker_compose_v2:
-    project_src: /home/longnh/Desktop/student-management-webapp/roles/monitoring/files
+    project_src: /home/longnh/Desktop/shop-app/roles/monitoring/files
     files:
     - docker-compose.yml
 

@@ -15,7 +15,7 @@
 
 - name: Copy backend folder to define in docker-compose.yml
   copy:
-    src: ./backend
+    src: ./ShopBE
     dest: /tmp/longnh/
 
 - name: Pull backend image from Dockerhub
@@ -23,9 +23,14 @@
     name: "{{ backend_image_name }}:{{ backend_image_tag }}"
     source: pull
 
+- name: Pull frontend image from Dockerhub
+  docker_image:
+    name: "{{ frontend_image_name }}:{{ frontend_image_tag }}"
+    source: pull
+
 - name: Deploy webapp using docker compose
   community.docker.docker_compose_v2:
-    project_src: /tmp/longnh/backend
+    project_src: /tmp/longnh/ShopBE
     files:
     - docker-compose.yml
 

@@ -40,4 +40,5 @@ receivers:
     auth_identity: 'longkakapro2000@gmail.com'
     auth_password: 'ojvgrobmifgtrmtz' # generate application password in gmail security setting
     send_resolved: true
+
     

@@ -1,5 +1,8 @@
 ---
 # defaults file for roles/deploy-webapp
 
-backend_image_name: longnh09/springbootapp
+backend_image_name: longnh09/shopappbe
 backend_image_tag: latest
+
+frontend_image_name: longnh09/shopappfe
+frontend_image_tag: latest
