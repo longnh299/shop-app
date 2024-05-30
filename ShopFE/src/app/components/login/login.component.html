@@ -1,0 +1,83 @@
+<div class="container">
+  <form #loginForm="ngForm">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="login-form mx-auto">
+        <h2 class="login-header">Đăng nhập</h2>
+        <div class="form-group">
+          <label for="phoneNumber">Số điện thoại</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="Số điện thoại"
+            [(ngModel)]="phoneNumber"
+            (input)="onPhoneNumberChange()"
+            (focus)="loginForm.form.markAsTouched()"
+          />
+          <div class="divider-nospace"></div>
+          <p
+          class="text-danger"
+          *ngIf="phoneNumber.length < 6 && loginForm.form.touched"
+        >
+          Ít nhất 6 kí tự
+        </p>
+        </div>
+        <div class="mt-5"></div>
+        <div class="form-group password-field">
+          <label for="password">Mật khẩu</label>
+          <input
+            [(ngModel)]="password"
+            (focus)="loginForm.form.markAsTouched()"
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Mật khẩu"
+          />
+          <i class="fa-regular fa-eye-slash password-span"></i>
+          <div class="divider-nospace"></div>
+          <p
+          class="text-danger"
+          *ngIf="password.length < 6 && loginForm.form.touched"
+        >
+          Ít nhất 6 kí tự
+        </p>
+        </div>
+
+        <!-- <div class="form-group" style="margin-top: 10px; width: 200px">
+          <select class="form-control access-right" [(ngModel)]="selectedRole">
+            <option selected disabled>Quyền đăng nhập</option>
+            <option *ngFor="let role of roles" [ngValue]="role">{{role.name}}</option>
+          
+          </select>
+        </div> -->
+
+        <div class="form-group">
+          <div class="form-check checkbox-text"></div>
+          <span style="display: flex">
+            <input type="checkbox" class="form-check-input" id="remmember" />
+            <label class="form-check-label text-start" for="remmember"
+              >Ghi nhớ đăng nhập</label
+            >
+          </span>
+          <a href="" class="register-link">Quên mật khẩu</a>
+        </div>
+        <div style="text-align: center">
+          <button class="btn btn-primary" (click)="login()">Đăng nhập</button>
+        </div>
+        <div class="divider"></div>
+        <p style="text-align: center">
+          Bạn chưa đăng ký?
+          <span>
+            <a href="" class="register-link">Tạo tài khoản</a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  mysqldb:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: boybanhbeo09
+      MYSQL_DATABASE: shopapp
+    volumes:
+      - ./src/main/resources/shopapp_db.sql:/docker-entrypoint-initdb.d/shopapp_db.sql
+    networks:
+      - springboot-mysql-net
+
+  frontendapp:
+    image: shopappfe:1.0
+    ports:
+      - "4200:4200"
+    networks:
+      - springboot-mysql-net
+    links:
+      - webapp
+  
+  webapp:
+    image: shopappbe:1.0 
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysqldb
+    networks:
+      - springboot-mysql-net
+
+networks:
+  springboot-mysql-net:
